@@ -17,32 +17,39 @@ public class Cars {
    public String location;
    public String availability;
    public String certificateExpiry;
-   
+   public String timeStamp;
+   public String updatedTimeStamp;
 
-    public Cars(String carName, String serialNumber, String carModel, String manufacturingYear, String location,String carCapacity, String certificateExpiry, String availability) {
+    
+
+    public Cars(String carName, String serialNumber, String carModel, String manufacturingYear, String carCapacity, String location, String availability, String certificateExpiry, String timeStamp, String updatedTimeStamp) {
         this.carName = carName;
-        this.carModel = carModel;
         this.serialNumber = serialNumber;
+        this.carModel = carModel;
         this.manufacturingYear = manufacturingYear;
         this.carCapacity = carCapacity;
         this.location = location;
         this.availability = availability;
         this.certificateExpiry = certificateExpiry;
+        this.timeStamp = timeStamp;
+        this.updatedTimeStamp = updatedTimeStamp;
     }
- public String getCarName() {
+
+    public String getUpdateTimeStamp() {
+        return updatedTimeStamp;
+    }
+
+    public void setUpdateTimeStamp(String updateTimeStamp) {
+        this.updatedTimeStamp = updateTimeStamp;
+    }
+    
+   
+    public String getCarName() {
         return carName;
     }
 
     public void setCarName(String carName) {
         this.carName = carName;
-    }
-
-    public String getCarModel() {
-        return carModel;
-    }
-
-    public void setCarModel(String carModel) {
-        this.carModel = carModel;
     }
 
     public String getSerialNumber() {
@@ -53,6 +60,14 @@ public class Cars {
         this.serialNumber = serialNumber;
     }
 
+    public String getCarModel() {
+        return carModel;
+    }
+
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
+    }
+
     public String getManufacturingYear() {
         return manufacturingYear;
     }
@@ -60,6 +75,7 @@ public class Cars {
     public void setManufacturingYear(String manufacturingYear) {
         this.manufacturingYear = manufacturingYear;
     }
+
     public String getCarCapacity() {
         return carCapacity;
     }
@@ -67,7 +83,7 @@ public class Cars {
     public void setCarCapacity(String carCapacity) {
         this.carCapacity = carCapacity;
     }
-   
+
     public String getLocation() {
         return location;
     }
@@ -91,6 +107,17 @@ public class Cars {
     public void setCertificateExpiry(String certificateExpiry) {
         this.certificateExpiry = certificateExpiry;
     }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+   
+
+  
 
    
     

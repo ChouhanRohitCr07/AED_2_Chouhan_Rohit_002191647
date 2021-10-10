@@ -31,8 +31,8 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         carsList= new ArrayList<>();
         defaultTableModel= new DefaultTableModel(header,0);
-        jTable1.setModel(defaultTableModel);
-        jTable2.setModel(defaultTableModel1);
+        jTableMain.setModel(defaultTableModel);
+//        jTable2.setModel(defaultTableModel1);
         this.setLocationRelativeTo(null);
     }
 
@@ -70,13 +70,9 @@ public class MainJFrame extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jButtonFirstAvailableCar = new javax.swing.JButton();
+        jTableMain = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -227,6 +223,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addGap(26, 26, 26))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jRadioButtonAvailable)
+                        .addGap(0, 0, 0)
                         .addComponent(jRadioButtonUnavailable)
                         .addGap(18, 18, 18)
                         .addComponent(jRadioButtonExpired)
@@ -287,42 +284,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdd, btnDelete, btnUpdate});
 
-        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createCompoundBorder());
-        jScrollPane1.setName(""); // NOI18N
-
-        jTable1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Car Brand", "Serial Number", "Car Model", "Manufacturing Year", "Location", "Capacity", "Certificate Expiry", "Availability"
-            }
-        ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel1.setText("Car Fleet ");
 
         jScrollPane2.setViewportBorder(javax.swing.BorderFactory.createCompoundBorder());
         jScrollPane2.setName(""); // NOI18N
 
-        jTable2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableMain.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jTableMain.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -339,36 +308,12 @@ public class MainJFrame extends javax.swing.JFrame {
                 "Car Brand", "Serial Number", "Car Model", "Manufacturing Year", "Location", "Capacity", "Certificate Expiry", "Availability"
             }
         ));
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableMain.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
+                jTableMainMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable2);
-
-        jButtonFirstAvailableCar.setText("Find me the first available passenger car?");
-        jButtonFirstAvailableCar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFirstAvailableCarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jButtonFirstAvailableCar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jButtonFirstAvailableCar)
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
+        jScrollPane2.setViewportView(jTableMain);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -380,12 +325,10 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(451, 451, 451)
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -402,19 +345,13 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
+                .addContainerGap(645, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(251, 251, 251)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(444, Short.MAX_VALUE)))
         );
-
-        jScrollPane1.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -496,8 +433,6 @@ public class MainJFrame extends javax.swing.JFrame {
         }else if(jRadioButtonActive.isSelected()){
             updateCertificateExpiry="Active";
         }
-        
-   
         carsList.get(row).carName= updateCarName;
         carsList.get(row).serialNumber= updateSerialNumber;
         carsList.get(row).carModel=updateCarModel;
@@ -506,8 +441,6 @@ public class MainJFrame extends javax.swing.JFrame {
         carsList.get(row).carCapacity=updateCarCapacity;
         carsList.get(row).certificateExpiry=updateCertificateExpiry;
         carsList.get(row).availability=updateAvailability;
-        
-        
         defaultTableModel.setRowCount(0);
         for(int i=0; i<carsList.size(); i++){
              Object[] object= {carsList.get(i).carName, carsList.get(i).serialNumber, carsList.get(i).carModel, carsList.get(i).manufacturingYear, carsList.get(i).location, carsList.get(i).carCapacity,carsList.get(i).certificateExpiry,carsList.get(i).availability};
@@ -516,10 +449,10 @@ public class MainJFrame extends javax.swing.JFrame {
         clearField();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jTableMainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMainMouseClicked
         // TODO add your handling code here:
-        row= jTable1.getSelectedRow();
-        column=jTable1.getSelectedColumn();
+        row= jTableMain.getSelectedRow();
+        column=jTableMain.getSelectedColumn();
         System.out.println(row+","+column);
         txtBrandName.setText(defaultTableModel.getValueAt(row,0).toString());
         txtSerialNumber.setText(defaultTableModel.getValueAt(row, 1).toString());
@@ -558,26 +491,22 @@ public class MainJFrame extends javax.swing.JFrame {
             } else {
                 jRadioButtonUnavailable.setSelected(true);
             }
-    }//GEN-LAST:event_jTable1MouseClicked
-
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable2MouseClicked
-
-    private void jButtonFirstAvailableCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFirstAvailableCarActionPerformed
-        // TODO add your handling code here:
-        for (int i=0;i<carsList.size();i++){
-            if (carsList.get(i).availability.equalsIgnoreCase("Available")) {
-                JOptionPane.showMessageDialog(jButtonFirstAvailableCar, "Found!!!","Search First Available Car",2);
-                
-            } else {
-                
-            }
         }
-        
-    }//GEN-LAST:event_jButtonFirstAvailableCarActionPerformed
+    }//GEN-LAST:event_jTableMainMouseClicked
 
-    private void clearField() {
+//  private void jButtonFirstAvailableCarActionPerformed(java.awt.event.ActionEvent evt) {                                                         
+//        // TODO add your handling code here:
+//        for (int i=0;i<carsList.size();i++){
+//            if (carsList.get(i).availability.equalsIgnoreCase("Available")) {
+//                JOptionPane.showMessageDialog(jButtonFirstAvailableCar, "Found!!!","Search First Available Car",2);
+//                
+//            } else {
+//                JOptionPane.showMessageDialog(jButtonFirstAvailableCar, "Not Found!!!");
+//            }
+//        }
+//        
+//    }                                                        
+   private void clearField() {
             txtBrandName.requestFocus();
             txtBrandName.setText("");
             txtSerialNumber.setText("");
@@ -635,19 +564,15 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxCapacity;
     private javax.swing.JComboBox<String> comboBoxCity;
     private javax.swing.JComboBox<String> comboBoxYear;
-    private javax.swing.JButton jButtonFirstAvailableCar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButtonActive;
     private javax.swing.JRadioButton jRadioButtonAvailable;
     private javax.swing.JRadioButton jRadioButtonExpired;
     private javax.swing.JRadioButton jRadioButtonUnavailable;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTableMain;
     private javax.swing.JLabel lblAvailability;
     private javax.swing.JLabel lblBrandName;
     private javax.swing.JLabel lblCapacity;

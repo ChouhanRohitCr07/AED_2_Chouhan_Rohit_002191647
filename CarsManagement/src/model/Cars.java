@@ -20,9 +20,21 @@ public class Cars {
    public String timeStamp;
    public String updatedTimeStamp;
 
+    public Cars(String carName, String serialNumber, String carModel, String manufacturingYear, String location, String carCapacity,String certificateExpiry, String availability, String timeStamp) {
+        this.carName = carName;
+        this.serialNumber = serialNumber;
+        this.carModel = carModel;
+        this.manufacturingYear = manufacturingYear;
+        this.carCapacity = carCapacity;
+        this.location = location;
+        this.availability = availability;
+        this.certificateExpiry = certificateExpiry;
+        this.timeStamp = timeStamp;
+    }
+
     
 
-    public Cars(String carName, String serialNumber, String carModel, String manufacturingYear, String carCapacity, String location, String availability, String certificateExpiry, String timeStamp, String updatedTimeStamp) {
+    public Cars(String carName, String serialNumber, String carModel, String manufacturingYear, String location, String carCapacity,String certificateExpiry, String availability, String timeStamp, String updatedTimeStamp) {
         this.carName = carName;
         this.serialNumber = serialNumber;
         this.carModel = carModel;

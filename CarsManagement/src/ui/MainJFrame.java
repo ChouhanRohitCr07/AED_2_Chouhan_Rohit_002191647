@@ -51,7 +51,6 @@ public class MainJFrame extends javax.swing.JFrame {
         btnAvailabilityGroup = new javax.swing.ButtonGroup();
         buttonExpiryGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        txtBrandName = new javax.swing.JTextField();
         lblBrandName = new javax.swing.JLabel();
         lblSerialNumber = new javax.swing.JLabel();
         txtSerialNumber = new javax.swing.JTextField();
@@ -69,6 +68,7 @@ public class MainJFrame extends javax.swing.JFrame {
         lblCertificateExpiry = new javax.swing.JLabel();
         jRadioButtonExpired = new javax.swing.JRadioButton();
         jRadioButtonActive = new javax.swing.JRadioButton();
+        comboBoxCarBrand = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -108,6 +108,7 @@ public class MainJFrame extends javax.swing.JFrame {
         lblManuYear.setRequestFocusEnabled(false);
 
         comboBoxYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010" }));
+        comboBoxYear.setSelectedIndex(-1);
         comboBoxYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxYearActionPerformed(evt);
@@ -124,8 +125,10 @@ public class MainJFrame extends javax.swing.JFrame {
         lblCapacity.setRequestFocusEnabled(false);
 
         comboBoxCapacity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "5", "7", "11", " " }));
+        comboBoxCapacity.setSelectedIndex(-1);
 
         comboBoxCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "NewYork", "Texas", "California", "Seattle", "NewJersey", "Ohio" }));
+        comboBoxCity.setSelectedIndex(-1);
 
         btnAvailabilityGroup.add(jRadioButtonAvailable);
         jRadioButtonAvailable.setText("Available");
@@ -146,6 +149,9 @@ public class MainJFrame extends javax.swing.JFrame {
         buttonExpiryGroup.add(jRadioButtonActive);
         jRadioButtonActive.setText("Active");
 
+        comboBoxCarBrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tesla", "Cadillac", "Mustang", "Lamborghini", "Maruti Suzuki", "Jeep", "Volkswagen", "Ferrari", "Audi", "BMW", "Bentley", "Dodge" }));
+        comboBoxCarBrand.setSelectedIndex(-1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -156,7 +162,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblBrandName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtBrandName, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboBoxCarBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,7 +207,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblBrandName, lblCarModel, lblManuYear, lblSerialNumber});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxCapacity, comboBoxCity, comboBoxYear, txtBrandName, txtCarModel, txtSerialNumber});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxCapacity, comboBoxCity, comboBoxYear, txtCarModel, txtSerialNumber});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButtonAvailable, jRadioButtonUnavailable});
 
@@ -228,39 +234,36 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(lblAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtBrandName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(5, 5, 5)
-                                        .addComponent(lblBrandName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(2, 2, 2)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtCarModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblCarModel)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblManuYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comboBoxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comboBoxCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(1, 1, 1)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comboBoxCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblManuYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBoxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBoxCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboBoxCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblBrandName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboBoxCarBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCarModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCarModel))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblBrandName, lblCarModel, lblManuYear, lblSerialNumber});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxCapacity, comboBoxCity, comboBoxYear, txtBrandName, txtCarModel, txtSerialNumber});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxCapacity, comboBoxCity, comboBoxYear, txtCarModel, txtSerialNumber});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButtonActive, jRadioButtonAvailable, jRadioButtonExpired, jRadioButtonUnavailable});
 
@@ -297,9 +300,9 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(400, 400, 400)
                 .addComponent(btnAdd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
                 .addComponent(btnDelete)
-                .addGap(152, 152, 152)
+                .addGap(173, 173, 173)
                 .addComponent(btnUpdate)
                 .addGap(400, 400, 400))
         );
@@ -367,6 +370,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButtonNumberOfAvailableUnavailableCars.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Start-Menu-Search-icon.png"))); // NOI18N
         jButtonNumberOfAvailableUnavailableCars.setText("How many cars are currently available. How many are not?");
         jButtonNumberOfAvailableUnavailableCars.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -374,6 +378,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButtonSearchBrandName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fetch-icon.png"))); // NOI18N
         jButtonSearchBrandName.setText("List all cars that are made by Toyota, GM, etc.?");
         jButtonSearchBrandName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -389,6 +394,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButtonGivenSerialNumber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Start-Menu-Search-icon.png"))); // NOI18N
         jButtonGivenSerialNumber.setText("Find a car with the given serial number. List the attributes of the found car");
         jButtonGivenSerialNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,6 +402,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButtonGivenModelNumber.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fetch-icon.png"))); // NOI18N
         jButtonGivenModelNumber.setText("List all cars given the model number.");
         jButtonGivenModelNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -403,6 +410,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButtonListAllManufacturer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Start-Menu-Search-icon.png"))); // NOI18N
         jButtonListAllManufacturer.setText("List all the car manufacturers used by the (this) Fleet.");
         jButtonListAllManufacturer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,6 +418,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButtonGivenCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Start-Menu-Search-icon.png"))); // NOI18N
         jButtonGivenCity.setText("List all cars that are available in a given city.");
         jButtonGivenCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,6 +426,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButtonExpiredCertificate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Fetch-icon.png"))); // NOI18N
         jButtonExpiredCertificate.setText("List all cars that have expired maintenance certificate.");
         jButtonExpiredCertificate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -601,37 +611,103 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        String carName = txtBrandName.getText();
-        String serialNumber= txtSerialNumber.getText();
-        String carModel= txtCarModel.getText();
-        String manufacturingYear= comboBoxYear.getSelectedItem().toString();
-        String carCapacity= comboBoxCapacity.getSelectedItem().toString();
-        String location= comboBoxCity.getSelectedItem().toString();
-        
+        String serialNumber="";
+        String carModel="";
+        String manufacturingYear="";
+        String carCapacity="";
+        String location="";
+        String carName="";
         String certificateExpiry="";
-        if (jRadioButtonExpired.isSelected()) {
-            certificateExpiry="Expired";
-        }else if(jRadioButtonActive.isSelected()){
-            certificateExpiry="Active";
-        }
         String availability="";
-        if (jRadioButtonAvailable.isSelected()) {
+        
+        while (true) {   
+             if (comboBoxCarBrand.getSelectedIndex()==-1) {
+            JOptionPane.showMessageDialog(this, "Select Name");
+            break;
+        } else{
+            carName = comboBoxCarBrand.getSelectedItem().toString();
+        }
+        if (txtSerialNumber.getText()== null || txtSerialNumber.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter Serial Number");
+            break;
+        } else{
+            serialNumber = txtSerialNumber.getText();
+        }  
+        //String carModel= txtCarModel.getText();    
+         if (txtCarModel.getText()== null || txtCarModel.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter Car Model");
+            break;
+        } else{
+            carModel = txtCarModel.getText();
+        }
+     
+        //String manufacturingYear= comboBoxYear.getSelectedItem().toString();
+        if (comboBoxYear.getSelectedIndex()==-1) {
+            JOptionPane.showMessageDialog(this, "Select Year");
+            break;
+        } else{
+            manufacturingYear = comboBoxYear.getSelectedItem().toString();
+        }
+        
+        //String carCapacity= comboBoxCapacity.getSelectedItem().toString();
+            try {
+                if (comboBoxCapacity.getSelectedIndex()==-1) {
+            JOptionPane.showMessageDialog(this, "Select Seats");
+            break;
+        } else{
+            carCapacity = comboBoxCapacity.getSelectedItem().toString();
+        }
+            } catch (Exception e) {
+            }
+        
+        //String location= comboBoxCity.getSelectedItem().toString();
+            try {
+                if (comboBoxCity.getSelectedIndex()==-1) {
+            JOptionPane.showMessageDialog(this, "Select City");
+            break;
+        } else{
+            location = comboBoxCity.getSelectedItem().toString();
+        }
+                
+            } catch (Exception e) {
+                
+            }
+        
+        
+        if((jRadioButtonExpired.isSelected()==false)&&(jRadioButtonActive.isSelected()==false)){
+        JOptionPane.showMessageDialog(null,"Please select radio button");
+        break;
+        }else{
+            if (jRadioButtonExpired.isSelected()) {
+                certificateExpiry="Expired";
+            }else if(jRadioButtonActive.isSelected()){
+                certificateExpiry="Active";
+        }
+             if((jRadioButtonAvailable.isSelected()==false)&&(jRadioButtonUnavailable.isSelected()==false)){
+        JOptionPane.showMessageDialog(null,"Please select radio button");
+        break;
+        }else{
+            if (jRadioButtonAvailable.isSelected()) {
             availability="Available";
-        }else if(jRadioButtonUnavailable.isSelected()){
+            }else if(jRadioButtonUnavailable.isSelected()){
             availability="Unavailable";
         }
+             }        
+ }
+        
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-        String updateTimeStamp="";
-        cars= new Cars(carName,serialNumber,carModel,manufacturingYear,location,carCapacity,certificateExpiry,availability,timeStamp,updateTimeStamp);
+        
+        cars= new Cars(carName, serialNumber,carModel,manufacturingYear,location,carCapacity,certificateExpiry,availability,timeStamp);
         carsList.add(cars);
         defaultTableModel.setRowCount(0);
         
         for(int i=0; i<carsList.size(); i++){
-            Object[] object= {carsList.get(i).carName, carsList.get(i).serialNumber, carsList.get(i).carModel, carsList.get(i).manufacturingYear, carsList.get(i).location, carsList.get(i).carCapacity,carsList.get(i).certificateExpiry,carsList.get(i).availability, carsList.get(i).timeStamp, carsList.get(i).updatedTimeStamp};
+            Object[] object= {carsList.get(i).carName, carsList.get(i).serialNumber, carsList.get(i).carModel, carsList.get(i).manufacturingYear, carsList.get(i).location, carsList.get(i).carCapacity,carsList.get(i).certificateExpiry,carsList.get(i).availability, carsList.get(i).timeStamp};
             defaultTableModel.addRow(object);
         }
         clearField();
-        
+        break;
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -655,7 +731,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String updateCarName= txtBrandName.getText();
+        String updateCarName= comboBoxCarBrand.getSelectedItem().toString();
         String updateSerialNumber=txtSerialNumber.getText();
         String updateCarModel=txtCarModel.getText();
         String updateManufacturingYear= comboBoxYear.getSelectedItem().toString();
@@ -684,7 +760,7 @@ public class MainJFrame extends javax.swing.JFrame {
         carsList.get(row).availability=updateAvailability;       
         defaultTableModel.setRowCount(0);
         for(int i=0; i<carsList.size(); i++){
-             Object[] object= {carsList.get(i).carName, carsList.get(i).serialNumber, carsList.get(i).carModel, carsList.get(i).manufacturingYear, carsList.get(i).location, carsList.get(i).carCapacity,carsList.get(i).certificateExpiry,carsList.get(i).availability,carsList.get(i).timeStamp};
+            Object[] object= {carsList.get(i).carName, carsList.get(i).serialNumber, carsList.get(i).carModel, carsList.get(i).manufacturingYear, carsList.get(i).location, carsList.get(i).carCapacity,carsList.get(i).certificateExpiry,carsList.get(i).availability,carsList.get(i).timeStamp};
             defaultTableModel.addRow(object);
             defaultTableModel.setValueAt(updatedTimeStamp, row, 9);          
         }
@@ -696,7 +772,13 @@ public class MainJFrame extends javax.swing.JFrame {
         row= jTableMain.getSelectedRow();
         column=jTableMain.getSelectedColumn();
         System.out.println(row+","+column);
-        txtBrandName.setText(defaultTableModel.getValueAt(row,0).toString());
+        //txtBrandName.setText(defaultTableModel.getValueAt(row,0).toString());
+        String carName = defaultTableModel.getValueAt(row, 0).toString();
+        for (int i = 0; i < (comboBoxCarBrand.getItemCount()); i++) {
+            if (comboBoxCarBrand.getItemAt(i).equalsIgnoreCase(carName)) {
+                comboBoxCarBrand.setSelectedIndex(i); 
+            }
+        }
         txtSerialNumber.setText(defaultTableModel.getValueAt(row, 1).toString());
         txtCarModel.setText(defaultTableModel.getValueAt(row, 2).toString());
         
@@ -709,7 +791,7 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         String location = defaultTableModel.getValueAt(row, 4).toString();
         for (int i = 0; i < (comboBoxCity.getItemCount()); i++) {
-            if (comboBoxCity.getItemAt(i).equalsIgnoreCase(manufacturingYear)) {
+            if (comboBoxCity.getItemAt(i).equalsIgnoreCase(location)) {
                 comboBoxCity.setSelectedIndex(i); 
             }
         }
@@ -723,14 +805,14 @@ public class MainJFrame extends javax.swing.JFrame {
             if (certificateExpiry.equals("Expired")) {
                 jRadioButtonExpired.setSelected(true);
                 
-            } else {
+            } else if(certificateExpiry.equals("Active")){
                 jRadioButtonActive.setSelected(true);
             }
         String availability= defaultTableModel.getValueAt(row, 7).toString();
-            if (certificateExpiry.equals("Available")) {
+            if (availability.equals("Available")) {
                 jRadioButtonAvailable.setSelected(true);
                 
-            } else {
+            } else if(availability.equals("Unavailable")){
                 jRadioButtonUnavailable.setSelected(true);
             }
         }
@@ -899,13 +981,13 @@ public class MainJFrame extends javax.swing.JFrame {
         return newList;   
     }
    private void clearField() {
-            txtBrandName.requestFocus();
-            txtBrandName.setText("");
+            comboBoxCarBrand.requestFocus();
+            comboBoxCarBrand.setSelectedIndex(-1);
             txtSerialNumber.setText("");
             txtCarModel.setText("");
-            comboBoxYear.setSelectedItem(0);
-            comboBoxCity.setSelectedItem(0);
-            comboBoxCapacity.setSelectedItem(0);
+            comboBoxYear.setSelectedIndex(-1);
+            comboBoxCity.setSelectedIndex(-1);
+            comboBoxCapacity.setSelectedIndex(-1);
             jRadioButtonAvailable.setSelected(false);
             jRadioButtonUnavailable.setSelected(false);
             jRadioButtonExpired.setSelected(false);
@@ -954,6 +1036,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdate;
     private javax.swing.ButtonGroup buttonExpiryGroup;
     private javax.swing.JComboBox<String> comboBoxCapacity;
+    private javax.swing.JComboBox<String> comboBoxCarBrand;
     private javax.swing.JComboBox<String> comboBoxCity;
     private javax.swing.JComboBox<String> comboBoxYear;
     private javax.swing.JButton jButtonExpiredCertificate;
@@ -988,14 +1071,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblLocation;
     private javax.swing.JLabel lblManuYear;
     private javax.swing.JLabel lblSerialNumber;
-    private javax.swing.JTextField txtBrandName;
     private javax.swing.JTextField txtCarModel;
     private javax.swing.JTextField txtMaximum;
     private javax.swing.JTextField txtMinimum;
     private javax.swing.JTextField txtSerialNumber;
     // End of variables declaration//GEN-END:variables
-
-    
-
-    
+  
 }

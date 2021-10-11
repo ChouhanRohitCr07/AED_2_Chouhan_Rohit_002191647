@@ -79,7 +79,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblBrandName" linkSize="1" min="-2" pref="136" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtBrandName" linkSize="3" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="comboBoxCarBrand" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -164,42 +164,36 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtBrandName" linkSize="4" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                          <Component id="lblBrandName" linkSize="2" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtSerialNumber" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblSerialNumber" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtCarModel" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCarModel" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblManuYear" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboBoxYear" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="comboBoxCapacity" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblLocation" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                                      <Component id="comboBoxCity" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblManuYear" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBoxYear" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBoxCapacity" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblLocation" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="comboBoxCity" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lblBrandName" linkSize="2" max="32767" attributes="0"/>
+                              <Component id="comboBoxCarBrand" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtSerialNumber" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSerialNumber" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtCarModel" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCarModel" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -209,8 +203,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="txtBrandName">
-        </Component>
         <Component class="javax.swing.JLabel" name="lblBrandName">
           <Properties>
             <Property name="text" type="java.lang.String" value="Car Brand"/>
@@ -260,6 +252,7 @@
                 <StringItem index="11" value="2010"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="-1"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxYearActionPerformed"/>
@@ -301,6 +294,7 @@
                 <StringItem index="4" value=" "/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="-1"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -319,6 +313,7 @@
                 <StringItem index="6" value="Ohio"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="-1"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -364,6 +359,30 @@
             <Property name="text" type="java.lang.String" value="Active"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JComboBox" name="comboBoxCarBrand">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="12">
+                <StringItem index="0" value="Tesla"/>
+                <StringItem index="1" value="Cadillac"/>
+                <StringItem index="2" value="Mustang"/>
+                <StringItem index="3" value="Lamborghini"/>
+                <StringItem index="4" value="Maruti Suzuki"/>
+                <StringItem index="5" value="Jeep"/>
+                <StringItem index="6" value="Volkswagen"/>
+                <StringItem index="7" value="Ferrari"/>
+                <StringItem index="8" value="Audi"/>
+                <StringItem index="9" value="BMW"/>
+                <StringItem index="10" value="Bentley"/>
+                <StringItem index="11" value="Dodge"/>
+              </StringArray>
+            </Property>
+            <Property name="selectedIndex" type="int" value="-1"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -374,9 +393,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="400" max="-2" attributes="0"/>
                   <Component id="btnAdd" linkSize="5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="194" max="32767" attributes="0"/>
+                  <EmptySpace pref="173" max="32767" attributes="0"/>
                   <Component id="btnDelete" linkSize="5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
                   <Component id="btnUpdate" linkSize="5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="400" max="-2" attributes="0"/>
               </Group>
@@ -617,6 +636,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonNumberOfAvailableUnavailableCars">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/Start-Menu-Search-icon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="How many cars are currently available. How many are not?"/>
           </Properties>
           <Events>
@@ -625,6 +647,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSearchBrandName">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/Fetch-icon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="List all cars that are made by Toyota, GM, etc.?"/>
           </Properties>
           <Events>
@@ -644,6 +669,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonGivenSerialNumber">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/Start-Menu-Search-icon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Find a car with the given serial number. List the attributes of the found car"/>
           </Properties>
           <Events>
@@ -652,6 +680,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonGivenModelNumber">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/Fetch-icon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="List all cars given the model number."/>
           </Properties>
           <Events>
@@ -660,6 +691,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonListAllManufacturer">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/Start-Menu-Search-icon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="List all the car manufacturers used by the (this) Fleet."/>
           </Properties>
           <Events>
@@ -668,6 +702,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonGivenCity">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/Start-Menu-Search-icon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="List all cars that are available in a given city."/>
           </Properties>
           <Events>
@@ -676,6 +713,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonExpiredCertificate">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/Fetch-icon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="List all cars that have expired maintenance certificate."/>
           </Properties>
           <Events>

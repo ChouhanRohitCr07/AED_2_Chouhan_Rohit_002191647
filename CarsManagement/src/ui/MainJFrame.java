@@ -4,12 +4,9 @@
  */
 package ui;
 
-import com.sun.jdi.ThreadReference;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import model.Cars;
 
@@ -63,12 +60,12 @@ public class MainJFrame extends javax.swing.JFrame {
         lblCapacity = new javax.swing.JLabel();
         comboBoxCapacity = new javax.swing.JComboBox<>();
         comboBoxCity = new javax.swing.JComboBox<>();
-        jRadioButtonAvailable = new javax.swing.JRadioButton();
-        jRadioButtonUnavailable = new javax.swing.JRadioButton();
         lblCertificateExpiry = new javax.swing.JLabel();
         jRadioButtonExpired = new javax.swing.JRadioButton();
         jRadioButtonActive = new javax.swing.JRadioButton();
         comboBoxCarBrand = new javax.swing.JComboBox<>();
+        jCheckBoxAvailable = new javax.swing.JCheckBox();
+        jCheckBoxUnavailable = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -96,6 +93,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lblBrandName.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblBrandName.setText("Car Brand");
 
         lblSerialNumber.setText("Serial Number");
@@ -130,12 +128,6 @@ public class MainJFrame extends javax.swing.JFrame {
         comboBoxCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "NewYork", "Texas", "California", "Seattle", "NewJersey", "Ohio" }));
         comboBoxCity.setSelectedIndex(-1);
 
-        btnAvailabilityGroup.add(jRadioButtonAvailable);
-        jRadioButtonAvailable.setText("Available");
-
-        btnAvailabilityGroup.add(jRadioButtonUnavailable);
-        jRadioButtonUnavailable.setText("Unavailable");
-
         lblCertificateExpiry.setText("Certificate Expiry");
 
         buttonExpiryGroup.add(jRadioButtonExpired);
@@ -151,6 +143,18 @@ public class MainJFrame extends javax.swing.JFrame {
 
         comboBoxCarBrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tesla", "Cadillac", "Mustang", "Lamborghini", "Maruti Suzuki", "Jeep", "Volkswagen", "Ferrari", "Audi", "BMW", "Bentley", "Dodge" }));
         comboBoxCarBrand.setSelectedIndex(-1);
+        comboBoxCarBrand.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 204, 255)));
+        comboBoxCarBrand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxCarBrandActionPerformed(evt);
+            }
+        });
+
+        btnAvailabilityGroup.add(jCheckBoxAvailable);
+        jCheckBoxAvailable.setText("Available");
+
+        btnAvailabilityGroup.add(jCheckBoxUnavailable);
+        jCheckBoxUnavailable.setText("Unavailable");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,7 +175,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCarModel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,36 +201,34 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(lblCertificateExpiry)
                         .addGap(24, 24, 24)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jRadioButtonUnavailable)
-                        .addComponent(jRadioButtonAvailable))
                     .addComponent(jRadioButtonActive)
-                    .addComponent(jRadioButtonExpired))
-                .addGap(100, 100, 100))
+                    .addComponent(jRadioButtonExpired)
+                    .addComponent(jCheckBoxUnavailable)
+                    .addComponent(jCheckBoxAvailable))
+                .addGap(98, 98, 98))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblBrandName, lblCarModel, lblManuYear, lblSerialNumber});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxCapacity, comboBoxCity, comboBoxYear, txtCarModel, txtSerialNumber});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButtonAvailable, jRadioButtonUnavailable});
-
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButtonActive, jRadioButtonExpired});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblCertificateExpiry)
-                .addGap(10, 10, 10))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jRadioButtonAvailable)
-                .addGap(0, 0, 0)
-                .addComponent(jRadioButtonUnavailable)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButtonExpired)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButtonActive))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jCheckBoxAvailable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(jCheckBoxUnavailable)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblCertificateExpiry)
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jRadioButtonExpired)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonActive))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -258,14 +260,14 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCarModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCarModel))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblBrandName, lblCarModel, lblManuYear, lblSerialNumber});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboBoxCapacity, comboBoxCity, comboBoxYear, txtCarModel, txtSerialNumber});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButtonActive, jRadioButtonAvailable, jRadioButtonExpired, jRadioButtonUnavailable});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButtonActive, jRadioButtonExpired});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblAvailability, lblCertificateExpiry});
 
@@ -519,7 +521,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jButtonSearchBrandName)
                     .addComponent(jButtonGivenModelNumber)
                     .addComponent(jButtonExpiredCertificate))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jButtonSeatsRequirements)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -574,14 +576,14 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(628, 628, 628)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPaneSecondaryTable)
-                    .addComponent(jScrollPaneMainTable))
+                    .addComponent(jScrollPaneMainTable)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -611,6 +613,12 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        for(Cars cr : carsList){
+            if(txtSerialNumber.getText().equalsIgnoreCase(cr.serialNumber)){
+                JOptionPane.showMessageDialog(this, "Duplicate Serial Number Found! Serial Number must be Unique!");
+                return;
+            }
+        }
         String serialNumber="";
         String carModel="";
         String manufacturingYear="";
@@ -640,7 +648,6 @@ public class MainJFrame extends javax.swing.JFrame {
         } else{
             carModel = txtCarModel.getText();
         }
-     
         //String manufacturingYear= comboBoxYear.getSelectedItem().toString();
         if (comboBoxYear.getSelectedIndex()==-1) {
             JOptionPane.showMessageDialog(this, "Select Year");
@@ -659,7 +666,6 @@ public class MainJFrame extends javax.swing.JFrame {
         }
             } catch (Exception e) {
             }
-        
         //String location= comboBoxCity.getSelectedItem().toString();
             try {
                 if (comboBoxCity.getSelectedIndex()==-1) {
@@ -667,7 +673,7 @@ public class MainJFrame extends javax.swing.JFrame {
             break;
         } else{
             location = comboBoxCity.getSelectedItem().toString();
-        }
+        }    
                 
             } catch (Exception e) {
                 
@@ -683,18 +689,17 @@ public class MainJFrame extends javax.swing.JFrame {
             }else if(jRadioButtonActive.isSelected()){
                 certificateExpiry="Active";
         }
-             if((jRadioButtonAvailable.isSelected()==false)&&(jRadioButtonUnavailable.isSelected()==false)){
+             if((jCheckBoxAvailable.isSelected()==false)&&(jCheckBoxUnavailable.isSelected()==false)){
         JOptionPane.showMessageDialog(null,"Please select radio button");
         break;
         }else{
-            if (jRadioButtonAvailable.isSelected()) {
+            if (jCheckBoxAvailable.isSelected()) {
             availability="Available";
-            }else if(jRadioButtonUnavailable.isSelected()){
+            }
+            else if(jCheckBoxUnavailable.isSelected()){
             availability="Unavailable";
-        }
-             }        
- }
-        
+            }
+            }
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
         
         cars= new Cars(carName, serialNumber,carModel,manufacturingYear,location,carCapacity,certificateExpiry,availability,timeStamp);
@@ -707,6 +712,7 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         clearField();
         break;
+        }
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -733,14 +739,20 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         String updateCarName= comboBoxCarBrand.getSelectedItem().toString();
         String updateSerialNumber=txtSerialNumber.getText();
+        for(Cars cr : carsList){
+            if(updateSerialNumber.equalsIgnoreCase(cr.serialNumber)){
+                JOptionPane.showMessageDialog(this, "Duplicate Serial Number Found! Serial Number must be Unique!");
+                return;
+            }
+        }
         String updateCarModel=txtCarModel.getText();
         String updateManufacturingYear= comboBoxYear.getSelectedItem().toString();
         String updateLocation= comboBoxCity.getSelectedItem().toString();
         String updateCarCapacity= comboBoxCapacity.getSelectedItem().toString();
         String updateAvailability="";
-        if (jRadioButtonAvailable.isSelected()) {
+        if (jCheckBoxAvailable.isSelected()) {
             updateAvailability="Available";
-        }else if(jRadioButtonUnavailable.isSelected()){
+        }else if(jCheckBoxUnavailable.isSelected()){
             updateAvailability="Unavailable";
         }
         String updateCertificateExpiry="";
@@ -749,7 +761,7 @@ public class MainJFrame extends javax.swing.JFrame {
         }else if(jRadioButtonActive.isSelected()){
             updateCertificateExpiry="Active";
         }
-        String updatedTimeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
+       
         carsList.get(row).carName= updateCarName;
         carsList.get(row).serialNumber= updateSerialNumber;
         carsList.get(row).carModel=updateCarModel;
@@ -760,9 +772,10 @@ public class MainJFrame extends javax.swing.JFrame {
         carsList.get(row).availability=updateAvailability;       
         defaultTableModel.setRowCount(0);
         for(int i=0; i<carsList.size(); i++){
-            Object[] object= {carsList.get(i).carName, carsList.get(i).serialNumber, carsList.get(i).carModel, carsList.get(i).manufacturingYear, carsList.get(i).location, carsList.get(i).carCapacity,carsList.get(i).certificateExpiry,carsList.get(i).availability,carsList.get(i).timeStamp};
+            String updatedTimeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
+            Object[] object= {carsList.get(i).carName, carsList.get(i).serialNumber, carsList.get(i).carModel, carsList.get(i).manufacturingYear, carsList.get(i).location, carsList.get(i).carCapacity,carsList.get(i).certificateExpiry,carsList.get(i).availability,carsList.get(i).timeStamp,carsList.get(i).updatedTimeStamp};
             defaultTableModel.addRow(object);
-            defaultTableModel.setValueAt(updatedTimeStamp, row, 9);          
+            //defaultTableModel.setValueAt(updatedTimeStamp, row, 9);
         }
         clearField();
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -810,10 +823,10 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         String availability= defaultTableModel.getValueAt(row, 7).toString();
             if (availability.equals("Available")) {
-                jRadioButtonAvailable.setSelected(true);
+                jCheckBoxAvailable.setSelected(true);
                 
             } else if(availability.equals("Unavailable")){
-                jRadioButtonUnavailable.setSelected(true);
+                jCheckBoxUnavailable.setSelected(true);
             }
         }
     }//GEN-LAST:event_jTableMainMouseClicked
@@ -864,6 +877,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 defaultTableModel1.addRow(object);
                 }
             } 
+            JOptionPane.showMessageDialog(jButtonSearchBrandName, "No Car of this brand name "+inputManufacturerName); 
+        
     }//GEN-LAST:event_jButtonSearchBrandNameActionPerformed
 
     private void jButtonListGivenYearDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListGivenYearDataActionPerformed
@@ -876,6 +891,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 defaultTableModel1.addRow(object);
                 }
             } 
+        JOptionPane.showMessageDialog(jButtonListGivenYearData, "No Enteries for given year "+inputYear); 
     }//GEN-LAST:event_jButtonListGivenYearDataActionPerformed
 
     private void jButtonGivenSerialNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGivenSerialNumberActionPerformed
@@ -888,6 +904,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 defaultTableModel1.addRow(object);
                 }
             } 
+        JOptionPane.showMessageDialog(jButtonGivenSerialNumber, "No Enteries for given Input Serial Number "+inputSerialNumber);
     }//GEN-LAST:event_jButtonGivenSerialNumberActionPerformed
 
     private void jButtonGivenModelNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGivenModelNumberActionPerformed
@@ -900,6 +917,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 defaultTableModel1.addRow(object);
                 }
             } 
+        JOptionPane.showMessageDialog(jButtonGivenModelNumber, "No Enteries for given Model  Number "+inputCarModel);
     }//GEN-LAST:event_jButtonGivenModelNumberActionPerformed
 
     private void jButtonListAllManufacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListAllManufacturerActionPerformed
@@ -926,6 +944,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 defaultTableModel1.addRow(object);
                 }
             } 
+        JOptionPane.showMessageDialog(jButtonGivenCity, "No Enteries for given city "+inputCity);
     }//GEN-LAST:event_jButtonGivenCityActionPerformed
 
     private void jButtonExpiredCertificateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExpiredCertificateActionPerformed
@@ -939,6 +958,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
             
         }
+        JOptionPane.showMessageDialog(jRadioButtonExpired, "No Enteries expired certificate entries ");
         
     }//GEN-LAST:event_jButtonExpiredCertificateActionPerformed
 
@@ -955,6 +975,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 defaultTableModel1.addRow(object);    
             }
         }
+        JOptionPane.showMessageDialog(jButtonSeatsRequirements, "no matches found within serach criteria");
     }//GEN-LAST:event_jButtonSeatsRequirementsActionPerformed
 
     private void txtMinimumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMinimumActionPerformed
@@ -968,6 +989,10 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jRadioButtonExpiredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonExpiredActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonExpiredActionPerformed
+
+    private void comboBoxCarBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCarBrandActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxCarBrandActionPerformed
             
    private ArrayList<String> removeDuplicates(ArrayList<String> arrayListManu) {
        ArrayList<String> newList = new ArrayList<>();
@@ -988,8 +1013,8 @@ public class MainJFrame extends javax.swing.JFrame {
             comboBoxYear.setSelectedIndex(-1);
             comboBoxCity.setSelectedIndex(-1);
             comboBoxCapacity.setSelectedIndex(-1);
-            jRadioButtonAvailable.setSelected(false);
-            jRadioButtonUnavailable.setSelected(false);
+            jCheckBoxAvailable.setSelected(false);
+            jCheckBoxUnavailable.setSelected(false);
             jRadioButtonExpired.setSelected(false);
             jRadioButtonActive.setSelected(false);
         
@@ -1049,6 +1074,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonNumberOfAvailableUnavailableCars;
     private javax.swing.JButton jButtonSearchBrandName;
     private javax.swing.JButton jButtonSeatsRequirements;
+    private javax.swing.JCheckBox jCheckBoxAvailable;
+    private javax.swing.JCheckBox jCheckBoxUnavailable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelMaximum;
     private javax.swing.JLabel jLabelMinimum;
@@ -1056,9 +1083,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButtonActive;
-    private javax.swing.JRadioButton jRadioButtonAvailable;
     private javax.swing.JRadioButton jRadioButtonExpired;
-    private javax.swing.JRadioButton jRadioButtonUnavailable;
     private javax.swing.JScrollPane jScrollPaneMainTable;
     private javax.swing.JScrollPane jScrollPaneSecondaryTable;
     private javax.swing.JTable jTableMain;
